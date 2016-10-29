@@ -18,6 +18,11 @@ namespace QLSV.Data
                 conn = new SqlConnection(connect);
         }
 
-
+        public SqlConnection getConnect()
+        {
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            return conn;
+        }
     }
 }
